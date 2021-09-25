@@ -7,69 +7,91 @@
 
 #searchBarBox {
   display: flex;
-  padding-right: 0px;
+  padding: 0;
   position: relative;
+  border-radius: 20px;
+
 }
 
 #searchBar {
   height: 50px;
-	width: 200px;
+	width: 240px;
 	background: white;
 	border-radius: 50px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	-webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
 	outline: none;
-	border: none;
+	border: 1px solid #DEDEDE;
 	font-family: 'poppins', 'arial';
 	font-size: 17px;
+  padding: 0;
 	padding-left: 20px;
-	color: #00A2FF;
+	color: #00aeff;
 	font-weight: 600;
 }
 
 #searchBarSubmit {
-  display: block;
-	background: transparent;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 50px;
+	background: #F1F1F1;
 	outline: none;
-	border: none;
+	border: 1px solid #DEDEDE;
 	position: absolute;
-	top: 10px;
-	right: 10px;
 	cursor: pointer;
+  border-radius: 0px 50px 50px 0px;
 }
 
 #searchBarSubmit img{
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
+  margin-left: -2px;
 }
 
 .autocomplete-items {
   position: absolute;
-  border: 1px solid #d4d4d4;
+  border: 1px solid #DEDEDE;
   border-bottom: none;
-  border-top: none;
-  z-index: 99;
+  z-index: 998;
   /*position the autocomplete items to be the same width as the container:*/
   top: 100%;
   left: 0;
   right: 0;
   font-family: poppins, arial;
+  -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+  -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
 }
 
 .autocomplete-items div {
   padding: 10px;
   cursor: pointer;
   background-color: #fff; 
-  border-bottom: 1px solid #d4d4d4; 
+  border-bottom: 1px solid #DEDEDE;
+}
+
+.autocomplete-items div #1{
+  background-color: red;
 }
 
 /*when hovering an item:*/
 .autocomplete-items div:hover {
-  background-color: #e9e9e9; 
+  background-color: #DEDEDE; 
+}
+
+#searchBarautocomplete-list{
+  overflow: hidden;
+  border-radius: 15px;
+  margin-top: 15px;
 }
 
 /*when navigating through the items using the arrow keys:*/
@@ -82,7 +104,7 @@
 <form autocomplete="off" method="POST">
   <div class="autocomplete">
     <div id="searchBarBox">
-      <input type="text" name="searchBar" id="searchBar" placeholder="nom de salle" autocomplete="off" autocapitalize="off" maxlength="15" minlength="3" spellcheck="false">
+      <input type="text" name="searchBar" id="searchBar" placeholder="Nom de la salle" autocomplete="off" autocapitalize="off" maxlength="15" minlength="3" spellcheck="false">
       <button type="submit" id="searchBarSubmit"><img src="images/search.png"></button>
     </div>
   </div>
@@ -187,7 +209,7 @@ function autocomplete(inp, arr) {
 }
 
 /*An array containing all the names of the classrooms*/
-var salles = ['flaubert','eiffel','daumnier','colette','voltaire','tchekov','sand','rimbaud','quesnay','plank','ohm','mozart','marconi','newton','laplace','kepler','isabey','jacquard','gay-lussac','harvey','fleming','einstein','darwin','boole','becquerel','ampère','cuvier','pasteur','de-gennes','bach','molière','kipling','ibsen','nabokov','lamartine','jussien','hérodote','froissart','dumas','baudelaire','apollinaire','chenier','euripide','giraudoux','kafka','nerval','leibniz','joinville','ingres','hugo','galilée','fermat','erasme','dante','copernic','bude','avicenne','stendhal','pascal','cervantes'];
+var salles = ['flaubert','eiffel','daumier','colette','voltaire','tchekov','sand','rimbaud','quesnay','planck','ohm','mozart','marconi','newton','laplace','kepler','isabey','jacquard','gay-lussac','harvey','fleming','einstein','darwin','boole','becquerel','ampère','cuvier','pasteur','de-gennes','bach','molière','kipling','ibsen','nabokov','lamartine','jussieu','hérodote','froissart','dumas','baudelaire','apollinaire','chenier','euripide','giraudoux','kafka','nerval','leibniz','joinville','ingres','hugo','galilée','fermat','erasme','dante','copernic','budé','avicenne','stendhal','pascal','cervantes'];
 
 /*initiate the autocomplete function on the "myInput" element, and pass along the countries array as possible autocomplete values:*/
 autocomplete(document.getElementById("searchBar"), salles);

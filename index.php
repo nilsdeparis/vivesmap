@@ -2,17 +2,17 @@
 
 session_start();
 
-if (!isset($_SESSION['escaliers'])) {
+/*if (!isset($_SESSION['escaliers'])) {
 	$_SESSION['escaliers'] = false;
-}
+}*/
 
 if (!isset($_SESSION['salles'])) {
 	$_SESSION['salles'] = true;
 }
 
-if (!isset($_SESSION['toilettes'])) {
+/*if (!isset($_SESSION['toilettes'])) {
 	$_SESSION['toilettes'] = false;
-}
+}*/
 
 if (!isset($_SESSION['setting1'])) {
 	$_SESSION['setting1'] = true;
@@ -64,39 +64,44 @@ $_SESSION['garderOuvert'] = false;
 
 	<header>
 		<div id="btnBox">
-			<div class="btn" id="layersBtn" onclick="menuDisplay('layersChoiceBox')"><img src="images/layers.png" /></div>
 			<div class="btn" id="settingsBtn" onclick="menuDisplay('settingsBox')"><img src="images/settings.png" /></div>
+			<!--<div class="btn" id="layersBtn" onclick="menuDisplay('layersChoiceBox')"><img src="images/layers.png" /></div>-->
 		</div>
 			
 
 
 		<div id="layersChoiceBox">
-			<form method="POST" class="container">
-				<button type="submit" value="true" name="layer1" class="buttona">
-					<div class="imgBox" id="img1">
-						<img src="images/stairs.png">
-					</div>
-					<p class="text" id="text1">Escaliers</p>
-				</button>
-			</form>
-			<div class="separation"></div>
-			<form method="POST" class="container">
-				<button type="submit" value="true" name="layer2" class="buttona">
-					<div class="imgBox" id="img2">
-						<img src="images/classroom.png">
-					</div>
-					<p class="text" id="text2">Salles</p>
-				</button>
-			</form>
-			<div class="separation"></div>
-			<form method="POST" class="container">
-				<button type="submit" value="true" name="layer3" class="buttona">
-					<div class="imgBox" id="img3">
-						<img src="images/toilet.png">
-					</div>
-					<p class="text" id="text3">Toilettes</p>
-				</button>
-			</form>
+			<div id="head">
+				<p>Filtres<p>
+			</div>
+			<div id="body">
+				<form method="POST" class="container">
+					<button type="submit" value="true" name="layer1" class="buttona">
+						<div class="imgBox" id="img1">
+							<img src="images/stairs.png">
+						</div>
+						<p class="text" id="text1">Escaliers</p>
+					</button>
+				</form>
+				<div class="separation"></div>
+				<form method="POST" class="container">
+					<button type="submit" value="true" name="layer2" class="buttona">
+						<div class="imgBox" id="img2">
+							<img src="images/classroom.png">
+						</div>
+						<p class="text" id="text2">Salles</p>
+					</button>
+				</form>
+				<div class="separation"></div>
+				<form method="POST" class="container">
+					<button type="submit" value="true" name="layer3" class="buttona">
+						<div class="imgBox" id="img3">
+							<img src="images/toilet.png">
+						</div>
+						<p class="text" id="text3">Toilettes</p>
+					</button>
+				</form>
+			</div>
 		</div>
 
 
@@ -240,20 +245,23 @@ $_SESSION['garderOuvert'] = false;
 				<p class="title">Liens</p>
 				<div id="liensBox">
 					<a href="mentionslegales.html" target="_blank" class="liensBtn">
-						<img src="images/legalMentions" class="imgBox">
+						<img src="images/legalMentions.png" class="imgBox">
 						<p>Mentions Légales</p>
 					</a>
 					<div class="separation"></div>
 					<a href="https://github.com/nilsdeparis/vivesmap" target="_blank" class="liensBtn">
-						<img src="images/sourceCode" class="imgBox">
+						<img src="images/sourceCode.png" class="imgBox">
 						<p>Code Source</p>
 					</a>
 					<div class="separation"></div>
-					<a href="mailto:nils.demougeot@gmail.com" class="liensBtn">
-						<img src="images/contact" class="imgBox">
-						<p>Me Contacter</p>
+					<a href="mailto:ndg.gaming.yt@gmail.com" class="liensBtn">
+						<img src="images/contact.png" class="imgBox">
+						<p>Contact Développeur</p>
 					</a>
 				</div>
+				<div class="separation"></div>
+				<img id="logoVivesMap" src="images/logo_site.png" width="150px">
+				
 				
 <?php
 			if (isset($_POST['setting1']) AND $_POST['setting1'] == 'true') {
@@ -303,58 +311,82 @@ $_SESSION['garderOuvert'] = false;
 								<style>
 								#searchBarBox {
 								  display: flex;
-								  padding-right: 0px;
+								  padding: 0;
 								  position: relative;
+								  border-radius: 20px;
+
 								}
 
 								#searchBar {
 								  height: 50px;
-									width: 200px;
+									width: 240px;
 									background: white;
 									border-radius: 50px;
 									display: flex;
 									align-items: center;
 									justify-content: center;
-									-webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-									-moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-									box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+									-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+									-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+									box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
 									outline: none;
-									border: none;
+									border: 1px solid #DEDEDE;
 									font-family: 'poppins', 'arial';
 									font-size: 17px;
+								  padding: 0;
 									padding-left: 20px;
-									color: #00A2FF;
+									color: #00aeff;
 									font-weight: 600;
 								}
 
 								#searchBarSubmit {
-								  display: block;
-									background: transparent;
+								  position: absolute;
+								  display: flex;
+								  align-items: center;
+								  justify-content: center;
+								  top: 0;
+								  right: 0;
+								  height: 100%;
+								  width: 50px;
+									background: #F1F1F1;
 									outline: none;
-									border: none;
+									border: 1px solid #DEDEDE;
 									position: absolute;
-									top: 10px;
-									right: 10px;
 									cursor: pointer;
+								  border-radius: 0px 50px 50px 0px;
 								}
 
 								#searchBarSubmit img{
-								  height: 30px;
-								  width: 30px;
+								  height: 25px;
+								  width: 25px;
+								  margin-left: -2px;
 								}
 								</style>
 
 								<form autocomplete="off" method="POST">
 								    <div id="searchBarBox">
-								      <input type="text" name="searchBar" id="searchBar" placeholder="nom de salle" autocomplete="off" autocapitalize="off" maxlength="15" minlength="3">
-								      <button type="submit" id="searchBarSubmit"><img src="images/search.png"></button>
+								      <input type="text" name="searchBar" id="searchBar" placeholder="Nom de salle" autocomplete="off" autocapitalize="off" maxlength="15" minlength="3" required />
+								      <button type="submit" id="searchBarSubmit" name="searchBarSubmit"><img src="images/search.png" /></button>
 								    </div>
 								</form>
 							<?php } else {
 							include("autocomplete.php");
 							} ?>
 	</header>
+	<script type="text/javascript">
+		// Get the input field
+		var input = document.getElementById("searchBar");
 
+		// Execute a function when the user releases a key on the keyboard
+		input.addEventListener("keyup", function(event) {
+		  // Number 13 is the "Enter" key on the keyboard
+		  if (event.keyCode === 13) {
+		    // Cancel the default action, if needed
+		    event.preventDefault();
+		    // Trigger the button element with a click
+		    document.getElementById("searchBarSubmit").click();
+		  }
+		});
+	</script>
 
 
 	<body>
@@ -365,9 +397,9 @@ $_SESSION['garderOuvert'] = false;
 					$version = "bêta 0.2";
 
 				//Tableaux contenat salles par étage
-					$salles_rdc = array('flaubert','eiffel','daumnier','colette','voltaire','tchekov','sand','rimbaud','quesnay','plank','ohm','mozart','marconi','newton','laplace','kepler','isabey','jacquard','gay-lussac','harvey','fleming','einstein','fleming','darwin','boole','becquerel','ampère','cuvier','pasteur','de-gennes','bach');
+					$salles_rdc = array('flaubert','eiffel','daumier','colette','voltaire','tchekov','sand','rimbaud','quesnay','planck','ohm','mozart','marconi','newton','laplace','kepler','isabey','jacquard','gay-lussac','harvey','fleming','einstein','darwin','boole','becquerel','ampère','cuvier','pasteur','de-gennes','bach');
 
-					$salles_etage = array('molière','kipling','ibsen','nabokov','lamartine','jussien','hérodote','froissart','dumas','baudelaire','apollinaire','chenier','euripide','giraudoux','kafka','nerval','leibniz','joinville','ingres','hugo','galilée','fermat','erasme','dante','copernic','bude','avicenne','stendhal','pascal','cervantes');
+					$salles_etage = array('molière','kipling','ibsen','nabokov','lamartine','jussieu','hérodote','froissart','dumas','baudelaire','apollinaire','chenier','euripide','giraudoux','kafka','nerval','leibniz','joinville','ingres','hugo','galilée','fermat','erasme','dante','copernic','budé','avicenne','stendhal','pascal','cervantes');
 
 				//Creation etat de base des variables
 					$etageActuel = 0;
@@ -378,6 +410,7 @@ $_SESSION['garderOuvert'] = false;
 
 				//conditions pour gérer la barre de recherche
 					if (isset($_POST['searchBar']) AND !empty($_POST['searchBar'])) {
+						$_POST['searchBar'] = htmlspecialchars($_POST['searchBar']);
 						$result = strtolower($_POST['searchBar']);
 						$search = true;
 					}
@@ -398,12 +431,18 @@ $_SESSION['garderOuvert'] = false;
 					} ?>
 
 
-					<p id="erreurEntree">
-						<?php if (isset($result) AND $erreurEntree == true) {
-							echo "aucune salle trouvée";
+					<?php if (isset($result) AND $erreurEntree == true) { ?>
+							<div id="erreurEntree">
+								<p>Aucune salle trouvée</p>
+								<img src="images/close.png" onclick="closeErreurEntree()">
+							</div>
+						<?php } ?>
+
+					<script type="text/javascript">
+						function closeErreurEntree() {
+							document.getElementById('erreurEntree').style.display = 'none';
 						}
-					?></p>
-					</div>
+					</script>
 
 					<?php
 					if (isset($_POST['buttonEtage'])) {
@@ -414,45 +453,59 @@ $_SESSION['garderOuvert'] = false;
 					}
 					?>
 
-				<div id="indicationEtageBox">
-					<div id="indicationEtage" onclick="choixEtage()">
-						<?php if ($etageActuel == 1){
-							echo "1er étage";
-						} else {
-							echo "rez de chaussée";
-						} ?>
-						
-						<img src="images/arrow.png">
-					</div>
+				<div id="indicationEtage" onclick="openPopupChoixEtage()">
+					<?php if ($etageActuel == 1){
+						echo "1er étage"; ?>
+						<style type="text/css">
+							#choixEtage #CEBOne{
+								color: #00A5FF;
+							}
+							#choixEtage #CEBZero{
+								color: black;
+							}
+						</style>
+					<?php } else {
+						echo "rez de chaussée"; ?>
+						<style type="text/css">
+							#choixEtage #CEBZero{
+								color: #00A5FF;
+							}
+							#choixEtage #CEBOne{
+								color: black;
+							}
+						</style>
+					<?php } ?>
+					
+					<img src="images/arrow.png">
+				</div>
 
+				<div id="etagePopupBackground">
 					<form id="choixEtage" method="POST">
-							<button class="choixEtageButton" name="buttonEtage">> 1er étage</button>
+						<img class="closePopupBtn" height="20px;" onclick="closePopupChoixEtage()" src="images/close.png">
+							<button class="choixEtageButton" id="CEBOne" name="buttonEtage"><img src="images/right-arrow.png" width="30px"> 1er étage</button>
 							<div id="ligneSeparation"></div>
-							<button class="choixEtageButton" name="buttonRdc">> rez de chaussée</button>
+							<button class="choixEtageButton" id="CEBZero" name="buttonRdc"><img src="images/right-arrow.png" width="30px"> rez de chaussée</button>
 					</form>
 				</div>
 
 					<script type="text/javascript">
-						function choixEtage() {
-							if (document.getElementById('choixEtage').style.display == 'flex') {
-								document.getElementById('choixEtage').style.display = 'none';
-								document.getElementById('indicationEtage').style.borderRadius = '50px';
-							} else {
-								document.getElementById('choixEtage').style.display = 'flex';
-								document.getElementById('indicationEtage').style.borderRadius = '50px 0px 0px 50px';
-							}
+						function openPopupChoixEtage() {
+							document.getElementById('etagePopupBackground').style.display = 'flex';
+						}
+						function closePopupChoixEtage() {
+							document.getElementById('etagePopupBackground').style.display = 'none';
 						}
 					</script>
 
 			<?php
 					if ($etageActuel == 1) { ?>
-						<div class="mapContainer">
-							<img src="images/planEtage1.jpg">
+						<div class="mapContainer" id="etage">
+							<img src="images/etage3d.jpg">
 						</div>
 					<?php }
 					else{ ?>
-						<div class="mapContainer">
-							<img src="images/planEtage0.jpg">
+						<div class="mapContainer" id="rdc">
+							<img src="images/rdc3d.jpg">
 						</div>
 					<?php } ?>
 
@@ -468,189 +521,189 @@ $_SESSION['garderOuvert'] = false;
 					if ($etageActuel == 0) { ?>
 
 							<?php if ($search == true AND $result == 'flaubert') { ?>
-								<p class="focused" id="flaubert">flaubert</p>
+								<p class="focused" id="flaubert">Flaubert</p>
 							<?php } else { ?>
-								<p class="salle" id="flaubert">flaubert</p>
+								<p class="salle" id="flaubert">Flaubert</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'eiffel') { ?>
-								<p class="focused" id="eiffel">eiffel</p>
+								<p class="focused" id="eiffel">Eiffel</p>
 							<?php } else { ?>
-								<p class="salle" id="eiffel">eiffel</p>
+								<p class="salle" id="eiffel">Eiffel</p>
 							<?php } ?>
 
-							<?php if ($search == true AND $result == 'daumnier') { ?>
-								<p class="focused" id="daumnier">daumnier</p>
+							<?php if ($search == true AND $result == 'daumier') { ?>
+								<p class="focused" id="daumier">Daumier</p>
 							<?php } else { ?>
-								<p class="salle" id="daumnier">daumnier</p>
+								<p class="salle" id="daumier">Daumier</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'colette') { ?>
-								<p class="focused" id="colette">colette</p>
+								<p class="focused" id="colette">Colette</p>
 							<?php } else { ?>
-								<p class="salle" id="colette">colette</p>
+								<p class="salle" id="colette">Colette</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'voltaire') { ?>
-								<p class="focused" id="voltaire">voltaire</p>
+								<p class="focused" id="voltaire">Voltaire</p>
 							<?php } else { ?>
-								<p class="salle" id="voltaire">voltaire</p>
+								<p class="salle" id="voltaire">Voltaire</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'tchekov') { ?>
-								<p class="focused" id="tchekov">tchekov</p>
+								<p class="focused" id="tchekov">Tchekov</p>
 							<?php } else { ?>
-								<p class="salle" id="tchekov">tchekov</p>
+								<p class="salle" id="tchekov">Tchekov</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'sand') { ?>
-								<p class="focused" id="sand">sand</p>
+								<p class="focused" id="sand">Sand</p>
 							<?php } else { ?>
-								<p class="salle" id="sand">sand</p>
+								<p class="salle" id="sand">Sand</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'rimbaud') { ?>
-								<p class="focused" id="rimbaud">rimbaud</p>
+								<p class="focused" id="rimbaud">Rimbaud</p>
 							<?php } else { ?>
-								<p class="salle" id="rimbaud">rimbaud</p>
+								<p class="salle" id="rimbaud">Rimbaud</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'quesnay') { ?>
-								<p class="focused" id="quesnay">quesnay</p>
+								<p class="focused" id="quesnay">Quesnay</p>
 							<?php } else { ?>
-								<p class="salle" id="quesnay">quesnay</p>
+								<p class="salle" id="quesnay">Quesnay</p>
 							<?php } ?>
 
-							<?php if ($search == true AND $result == 'plank') { ?>
-								<p class="focused" id="plank">plank</p>
+							<?php if ($search == true AND $result == 'planck') { ?>
+								<p class="focused" id="planck">Planck</p>
 							<?php } else { ?>
-								<p class="salle" id="plank">plank</p>
+								<p class="salle" id="planck">Planck</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'ohm') { ?>
-								<p class="focused" id="ohm">ohm</p>
+								<p class="focused" id="ohm">Ohm</p>
 							<?php } else { ?>
-								<p class="salle" id="ohm">ohm</p>
+								<p class="salle" id="ohm">Ohm</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'mozart') { ?>
-								<p class="focused" id="mozart">mozart</p>
+								<p class="focused" id="mozart">Mozart</p>
 							<?php } else { ?>
-								<p class="salle" id="mozart">mozart</p>
+								<p class="salle" id="mozart">Mozart</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'marconi') { ?>
-								<p class="focused" id="marconi">marconi</p>
+								<p class="focused" id="marconi">Marconi</p>
 							<?php } else { ?>
-								<p class="salle" id="marconi">marconi</p>
+								<p class="salle" id="marconi">Marconi</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'newton') { ?>
-								<p class="focused" id="newton">newton</p>
+								<p class="focused" id="newton">Newton</p>
 							<?php } else { ?>
-								<p class="salle" id="newton">newton</p>
+								<p class="salle" id="newton">Newton</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'laplace') { ?>
-								<p class="focused" id="laplace">laplace</p>
+								<p class="focused" id="laplace">Laplace</p>
 							<?php } else { ?>
-								<p class="salle" id="laplace">laplace</p>
+								<p class="salle" id="laplace">Laplace</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'kepler') { ?>
-								<p class="focused" id="kepler">kepler</p>
+								<p class="focused" id="kepler">Kepler</p>
 							<?php } else { ?>
-								<p class="salle" id="kepler">kepler</p>
+								<p class="salle" id="kepler">Kepler</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'isabey') { ?>
-								<p class="focused" id="isabey">isabey</p>
+								<p class="focused" id="isabey">Isabey</p>
 							<?php } else { ?>
-								<p class="salle" id="isabey">isabey</p>
+								<p class="salle" id="isabey">Isabey</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'jacquard') { ?>
-								<p class="focused" id="jacquard">jacquard</p>
+								<p class="focused" id="jacquard">Jacquard</p>
 							<?php } else { ?>
-								<p class="salle" id="jacquard">jacquard</p>
+								<p class="salle" id="jacquard">Jacquard</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'gay-lussac') { ?>
-								<p class="focused" id="gay-lussac">gay-lussac</p>
+								<p class="focused" id="gay-lussac">Gay-lussac</p>
 							<?php } else { ?>
-								<p class="salle" id="gay-lussac">gay-lussac</p>
+								<p class="salle" id="gay-lussac">Gay-lussac</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'harvey') { ?>
-								<p class="focused" id="harvey">harvey</p>
+								<p class="focused" id="harvey">Harvey</p>
 							<?php } else { ?>
-								<p class="salle" id="harvey">harvey</p>
+								<p class="salle" id="harvey">Harvey</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'fleming') { ?>
-								<p class="focused" id="fleming">fleming</p>
+								<p class="focused" id="fleming">Fleming</p>
 							<?php } else { ?>
-								<p class="salle" id="fleming">fleming</p>
+								<p class="salle" id="fleming">Fleming</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'einstein') { ?>
-								<p class="focused" id="einstein">einstein</p>
+								<p class="focused" id="einstein">Einstein</p>
 							<?php } else { ?>
-								<p class="salle" id="einstein">einstein</p>
+								<p class="salle" id="einstein">Einstein</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'darwin') { ?>
-								<p class="focused" id="darwin">darwin</p>
+								<p class="focused" id="darwin">Darwin</p>
 							<?php } else { ?>
-								<p class="salle" id="darwin">darwin</p>
+								<p class="salle" id="darwin">Darwin</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'boole') { ?>
-								<p class="focused" id="boole">boole</p>
+								<p class="focused" id="boole">Boole</p>
 							<?php } else { ?>
-								<p class="salle" id="boole">boole</p>
+								<p class="salle" id="boole">Boole</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'becquerel') { ?>
-								<p class="focused" id="becquerel">becquerel</p>
+								<p class="focused" id="becquerel">Becquerel</p>
 							<?php } else { ?>
-								<p class="salle" id="becquerel">becquerel</p>
+								<p class="salle" id="becquerel">Becquerel</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'ampère') { ?>
-								<p class="focused" id="ampère">ampère</p>
+								<p class="focused" id="ampère">Ampère</p>
 							<?php } else { ?>
-								<p class="salle" id="ampère">ampère</p>
+								<p class="salle" id="ampère">Ampère</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'cuvier') { ?>
-								<p class="focused" id="cuvier">cuvier</p>
+								<p class="focused" id="cuvier">Cuvier</p>
 							<?php } else { ?>
-								<p class="salle" id="cuvier">cuvier</p>
+								<p class="salle" id="cuvier">Cuvier</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'pasteur') { ?>
-								<p class="focused" id="pasteur">pasteur</p>
+								<p class="focused" id="pasteur">Pasteur</p>
 							<?php } else { ?>
-								<p class="salle" id="pasteur">pasteur</p>
+								<p class="salle" id="pasteur">Pasteur</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'de-gennes') { ?>
-								<p class="focused" id="de-gennes">de-gennes</p>
+								<p class="focused" id="de-gennes">De-gennes</p>
 							<?php } else { ?>
-								<p class="salle" id="de-gennes">de-gennes</p>
+								<p class="salle" id="de-gennes">De-gennes</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'bach') { ?>
-								<p class="focused" id="bach">bach</p>
+								<p class="focused" id="bach">Bach</p>
 							<?php } else { ?>
-								<p class="salle" id="bach">bach</p>
+								<p class="salle" id="bach">Bach</p>
 							<?php } ?>
 
 
 							<p class="special" id="cdi">CDI</p>
 
-							<p class="special" id="cafétaria">cafétaria</p>
+							<p class="special" id="cafetaria">cafetaria</p>
 
 							<p class="special" id="infirmerie">infirmerie</p>
 
@@ -661,183 +714,183 @@ $_SESSION['garderOuvert'] = false;
 					if ($etageActuel == 1) { ?>
 
 							<?php if ($search == true AND $result == 'molière') { ?>
-								<p class="focused" id="molière">molière</p>
+								<p class="focused" id="molière">Molière</p>
 							<?php } else { ?>
-								<p class="salle" id="molière">molière</p>
+								<p class="salle" id="molière">Molière</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'kipling') { ?>
-								<p class="focused" id="kipling">kipling</p>
+								<p class="focused" id="kipling">Kipling</p>
 							<?php } else { ?>
-								<p class="salle" id="kipling">kipling</p>
+								<p class="salle" id="kipling">Kipling</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'ibsen') { ?>
-								<p class="focused" id="ibsen">ibsen</p>
+								<p class="focused" id="ibsen">Ibsen</p>
 							<?php } else { ?>
-								<p class="salle" id="ibsen">ibsen</p>
+								<p class="salle" id="ibsen">Ibsen</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'nabokov') { ?>
-								<p class="focused" id="nabokov">nabokov</p>
+								<p class="focused" id="nabokov">Nabokov</p>
 							<?php } else { ?>
-								<p class="salle" id="nabokov">nabokov</p>
+								<p class="salle" id="nabokov">Nabokov</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'lamartine') { ?>
-								<p class="focused" id="lamartine">lamartine</p>
+								<p class="focused" id="lamartine">Lamartine</p>
 							<?php } else { ?>
-								<p class="salle" id="lamartine">lamartine</p>
+								<p class="salle" id="lamartine">Lamartine</p>
 							<?php } ?>
 
-							<?php if ($search == true AND $result == 'jussien') { ?>
-								<p class="focused" id="jussien">jussien</p>
+							<?php if ($search == true AND $result == 'jussieu') { ?>
+								<p class="focused" id="jussieu">Jussieu</p>
 							<?php } else { ?>
-								<p class="salle" id="jussien">jussien</p>
+								<p class="salle" id="jussieu">Jussieu</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'hérodote') { ?>
-								<p class="focused" id="hérodote">hérodote</p>
+								<p class="focused" id="hérodote">Hérodote</p>
 							<?php } else { ?>
-								<p class="salle" id="hérodote">hérodote</p>
+								<p class="salle" id="hérodote">Hérodote</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'froissart') { ?>
-								<p class="focused" id="froissart">froissart</p>
+								<p class="focused" id="froissart">Froissart</p>
 							<?php } else { ?>
-								<p class="salle" id="froissart">froissart</p>
+								<p class="salle" id="froissart">Froissart</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'dumas') { ?>
-								<p class="focused" id="dumas">dumas</p>
+								<p class="focused" id="dumas">Dumas</p>
 							<?php } else { ?>
-								<p class="salle" id="dumas">dumas</p>
+								<p class="salle" id="dumas">Dumas</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'baudelaire') { ?>
-								<p class="focused" id="baudelaire">baudelaire</p>
+								<p class="focused" id="baudelaire">Baudelaire</p>
 							<?php } else { ?>
-								<p class="salle" id="baudelaire">baudelaire</p>
+								<p class="salle" id="baudelaire">Baudelaire</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'apollinaire') { ?>
-								<p class="focused" id="apollinaire">apollinaire</p>
+								<p class="focused" id="apollinaire">Apollinaire</p>
 							<?php } else { ?>
-								<p class="salle" id="apollinaire">apollinaire</p>
+								<p class="salle" id="apollinaire">Apollinaire</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'chenier') { ?>
-								<p class="focused" id="chenier">chenier</p>
+								<p class="focused" id="chenier">Chenier</p>
 							<?php } else { ?>
-								<p class="salle" id="chenier">chenier</p>
+								<p class="salle" id="chenier">Chenier</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'euripide') { ?>
-								<p class="focused" id="euripide">euripide</p>
+								<p class="focused" id="euripide">Euripide</p>
 							<?php } else { ?>
-								<p class="salle" id="euripide">euripide</p>
+								<p class="salle" id="euripide">Euripide</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'giraudoux') { ?>
-								<p class="focused" id="giraudoux">giraudoux</p>
+								<p class="focused" id="giraudoux">Giraudoux</p>
 							<?php } else { ?>
-								<p class="salle" id="giraudoux">giraudoux</p>
+								<p class="salle" id="giraudoux">Giraudoux</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'kafka') { ?>
-								<p class="focused" id="kafka">kafka</p>
+								<p class="focused" id="kafka">Kafka</p>
 							<?php } else { ?>
-								<p class="salle" id="kafka">kafka</p>
+								<p class="salle" id="kafka">Kafka</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'nerval') { ?>
-								<p class="focused" id="nerval">nerval</p>
+								<p class="focused" id="nerval">Nerval</p>
 							<?php } else { ?>
-								<p class="salle" id=nerval>nerval</p>
+								<p class="salle" id=nerval>Nerval</p>
 							<?php }?>
 
 							<?php if ($search == true AND $result == 'leibniz') { ?>
-								<p class="focused" id="leibniz">leibniz</p>
+								<p class="focused" id="leibniz">Leibniz</p>
 							<?php } else { ?>
-								<p class="salle" id="leibniz">leibniz</p>
+								<p class="salle" id="leibniz">Leibniz</p>
 							<?php }?>
 
 							<?php if ($search == true AND $result == 'joinville') { ?>
-								<p class="focused" id="joinville">joinville</p>
+								<p class="focused" id="joinville">Joinville</p>
 							<?php } else { ?>
-								<p class="salle" id="joinville">joinville</p>
+								<p class="salle" id="joinville">Joinville</p>
 							<?php }?>
 
 							<?php if ($search == true AND $result == 'ingres') { ?>
-								<p class="focused" id="ingres">ingres</p>
+								<p class="focused" id="ingres">Ingres</p>
 							<?php } else { ?>
-								<p class="salle" id="ingres">ingres</p>
+								<p class="salle" id="ingres">Ingres</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'hugo') { ?>
-								<p class="focused" id="hugo">hugo</p>
+								<p class="focused" id="hugo">Hugo</p>
 							<?php } else { ?>
-								<p class="salle" id="hugo">hugo</p>
+								<p class="salle" id="hugo">Hugo</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'galilée') { ?>
-								<p class="focused" id="galilée">galilée</p>
+								<p class="focused" id="galilée">Galilée</p>
 							<?php } else { ?>
-								<p class="salle" id="galilée">galilée</p>
+								<p class="salle" id="galilée">Galilée</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'fermat') { ?>
-								<p class="focused" id="fermat">fermat</p>
+								<p class="focused" id="fermat">Fermat</p>
 							<?php } else { ?>
-								<p class="salle" id="fermat">fermat</p>
+								<p class="salle" id="fermat">Fermat</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'erasme') { ?>
-								<p class="focused" id="erasme">erasme</p>
+								<p class="focused" id="erasme">Erasme</p>
 							<?php } else { ?>
-								<p class="salle" id="erasme">erasme</p>
+								<p class="salle" id="erasme">Erasme</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'dante') { ?>
-								<p class="focused" id="dante">dante</p>
+								<p class="focused" id="dante">Dante</p>
 							<?php } else { ?>
-								<p class="salle" id="dante">dante</p>
+								<p class="salle" id="dante">Dante</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'copernic') { ?>
-								<p class="focused" id="copernic">copernic</p>
+								<p class="focused" id="copernic">Copernic</p>
 							<?php } else { ?>
-								<p class="salle" id="copernic">copernic</p>
+								<p class="salle" id="copernic">Copernic</p>
 							<?php } ?>
 
-							<?php if ($search == true AND $result == 'bude') { ?>
-								<p class="focused" id="bude">bude</p>
+							<?php if ($search == true AND $result == 'budé') { ?>
+								<p class="focused" id="budé">Budé</p>
 							<?php } else { ?>
-								<p class="salle" id="bude">bude</p>
+								<p class="salle" id="budé">Budé</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'avicenne') { ?>
-								<p class="focused" id="avicenne">avicenne</p>
+								<p class="focused" id="avicenne">Avicenne</p>
 							<?php } else { ?>
-								<p class="salle" id="avicenne">avicenne</p>
+								<p class="salle" id="avicenne">Avicenne</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'stendhal') { ?>
-								<p class="focused" id="stendhal">stendhal</p>
+								<p class="focused" id="stendhal">Stendhal</p>
 							<?php } else { ?>
-								<p class="salle" id="stendhal">stendhal</p>
+								<p class="salle" id="stendhal">Stendhal</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'pascal') { ?>
-								<p class="focused" id="pascal">pascal</p>
+								<p class="focused" id="pascal">Pascal</p>
 							<?php } else { ?>
-								<p class="salle" id="pascal">pascal</p>
+								<p class="salle" id="pascal">Pascal</p>
 							<?php } ?>
 
 							<?php if ($search == true AND $result == 'cervantes') { ?>
-								<p class="focused" id="cervantes">cervantes</p>
+								<p class="focused" id="cervantes">Cervantes</p>
 							<?php } else { ?>
-								<p class="salle" id="cervantes">cervantes</p>
+								<p class="salle" id="cervantes">Cervantes</p>
 							<?php } ?>
 
 

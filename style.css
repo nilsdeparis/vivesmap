@@ -1,6 +1,6 @@
 
 html{
-	background-color: #E5F5F8;
+	background-color: #448a91;
 }
 
 body{
@@ -11,7 +11,6 @@ header{
 	position: fixed;
 	height: auto;
 	display: flex;
-	justify-content: space-between;
 	z-index: 100;
 	width: 460px;
 }
@@ -28,12 +27,13 @@ header .btn{
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	-webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	border: 1px solid #DEDEDE;
 }
 
-header #layersBtn{
+header #settingsBtn{
 	margin-right: 15px;
 }
 
@@ -41,16 +41,43 @@ header .btn img{
 	height: 25px;
 }
 
+img{
+	z-index: 1;
+}
+
 #layersChoiceBox{
 	display: none;
+	flex-direction: column;
 	position: absolute;
 	top: 65px;
 	background-color: white;
 	border-radius: 18px;
-	-webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	padding: 20px 20px 5px 20px;
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+}
+
+#layersChoiceBox #head{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	width: 100%;
+	height: 60px;
+	border-radius: 18px 18px 0px 0px;
+	background: rgb(0,137,255);
+	background: linear-gradient(145deg, rgba(0,137,255,1) 0%, rgba(0,185,255,1) 100%);
+	color: white;
+	font-family: 'poppins', 'arial';
+	font-size: 20px;
+	font-weight: 700;
+}
+
+#layersChoiceBox #body{
+	padding: 20px;
+	padding-bottom: 10px;
+	padding-top: 20px;
+	display: flex;
+	flex-direction: row;
 }
 
 #layersChoiceBox .container{
@@ -130,9 +157,9 @@ header .btn img{
 	top: 65px;
 	background-color: white;
 	border-radius: 18px;
-	-webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	-moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
-	box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+	-webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.1);
 	width: 300px;
 }
 
@@ -259,7 +286,12 @@ body .mapContainer{
 }
 
 .mapContainer img{
+	margin-top: -90px;
     width: 500px;
+}
+
+#etage img {
+	margin-top: -80px;
 }
 
 #salles0Box{
@@ -275,44 +307,53 @@ body .mapContainer{
 	top: 0%;
 	left: 0%;
 	margin-left: 0px;
-	margin-top: -140px;
-	transform: scale();
+	margin-top: -145px;
 }
 
 .salle{
 	position: absolute;
-	font-size: 13px;
+	font-size: 12px;
 	padding: 3px 7px;
-	font-family: 'varela round', arial;
+	font-family: 'Poppins', arial;
+	font-weight: 600;
 	border-radius: 50px;
-	background-color: rgba(48, 205, 230, 20%);
-	color: #009ac9;
-	backdrop-filter: blur(5px);
+	background-color: rgba(163, 211, 255, 28%);
+	color: #0086E7;
+	backdrop-filter: blur(8px);
+	white-space: nowrap;
+	-webkit-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.1);
+	box-shadow: 0px 1px 5px 0px rgba(0,0,0,0.1);
 }
 
 .focused{
 	position: absolute;
 	color: red;
 	font-size: 13px;
-	font-family: 'varela round', arial;
+	font-family: 'poppins', arial;
+	font-weight: 700;
 	font-weight: bold;
-	background-color: rgba(51, 240, 41, 20%);
-    color: #16d900;
+	background-color: rgba(57, 191, 35, 25%);
+    color: #42FF00;
     font-size: 13px;
 	padding: 3px 7px;
 	border-radius: 50px;
 	animation: blinker 1.2s linear infinite;
+	backdrop-filter: blur(8px);
+	transform: scale(1.1);
+	white-space: nowrap;
 }
 
 .special{
 	position: absolute;
 	font-size: 13px;
 	padding: 3px 7px;
-	font-family: 'varela round', arial;
+	font-family: 'poppins', arial;
+	font-weight: 600;
 	border-radius: 50px;
-	background-color: rgba(193, 112, 255, 20%);
-	color: #6500B1;
-	backdrop-filter: blur(5px);
+	background-color: rgba(180, 153, 255, 40%);
+	color: #4300FF;
+	backdrop-filter: blur(8px);
 }
 
 @keyframes blinker {
@@ -385,28 +426,39 @@ body .mapContainer{
 }
 
 #erreurEntree{
-	color: red;
-	font-weight: 600;
-	font-family: 'varela round', arial;
-	font-size: 20px;
-	position: absolute;
-	left: 20px;
-	top: 50px;
-	z-index: 10;
-}
-
-#indicationEtageBox{
 	position: fixed;
-	bottom: 50px;
-	left: 20px;
-	z-index: 200;
+	text-align: center;
+	z-index: 1;
+	background-color: rgba(255,255,255,0.4);
+	backdrop-filter: blur(5px);
+	border-radius: 18px;
+	-webkit-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+	box-shadow: 0px 2px 8px 0px rgba(0,0,0,0.3);
+	font-family: poppins, arial;
+	font-size: 18px;
+	font-weight: bold;
+	padding: 8px 30px;
+	color: red;
+	top: 75px;
 	display: flex;
-	align-items: flex-end;
+	align-items: center;
+	justify-content: center;
+}
+#erreurEntree img{
+	position: relative;
+	height: 25px;
+	width: 25px;
+	margin-left: 20px;
 }
 
 #indicationEtage{
+	position: absolute;
+	top: 100vh;
+	left: 20px;
+	z-index: 200;
 	background-color: white;
-	box-shadow: 0px 5px 10px rgba(0, 0, 0, 40%);
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 30%);
 	padding: 7px 15px 7px 15px;
 	font-family: poppins, arial;
 	font-weight: 600;
@@ -418,37 +470,72 @@ body .mapContainer{
 }
 
 #indicationEtage img{
-	height: 20px;
+	height: 15px;
 	transform: rotate(-90deg);
 	margin-left: 10px;
 }
 
-#choixEtage{
+#etagePopupBackground{
 	display: none;
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 500px;
+	height: 120vh;
+	z-index: 1000000;
+	background-color: rgba(255, 255, 255; 0.5);
+	backdrop-filter: blur(10px);
+	align-items: center;
+	justify-content: center;
+}
+
+.closePopupBtn{
+	position: absolute;
+	top: 15px;
+	right: 15px;
+	background-color: transparent;
+	border: none;
+	outline: none;
+}
+
+#choixEtage{
+	position: relative;
+	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	padding: 5px 10px;
-	background-color: white;
-	box-shadow: 0px 5px 10px rgba(0, 0, 0, 40%);
-	border-radius: 15px 15px 15px 0px;
+	align-items: flex-start;
+	padding: 20px 0px 15px 0px;
+	background-color: rgba(255,255,255,0.9);
+	box-shadow: 0px 3px 15px rgba(0, 0, 0, 25%);
+	border-radius: 20px;
+	backdrop-filter: blur(20px);
+	/*border: solid 0.5px #c4c4c4;*/
 }
+
 
 .choixEtageButton{
 	font-family: poppins, arial;
-	font-size: 16px;
+	font-size: 20px;
 	background-color: transparent;
 	border-style: none;
 	outline: none;
 	padding: 5px 10px;
+	margin: 0px 25px;
 	font-weight: 600;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+.choixEtageButton img{
+	padding-right: 5px;
 }
 
 #ligneSeparation{
-	background-color: black;
-	width: 90%;
+	background-color: #c4c4c4;
+	width: 100%;
 	height: 0.5px;
-	margin-top: 5px;
-	margin-bottom: 5px;
+	margin-top: 10px;
+	margin-bottom: 10px;
 }
 
 ::-webkit-scrollbar {
@@ -498,11 +585,12 @@ footer img{
 	padding: 30px 20px 30px 20px;
 }
 
-#logo_site{
+#logoVivesMap{
 	display: block;
-	height: 80px;
-	margin-right: auto;
+	width: 150px;
 	margin-left: auto;
+	margin-right: auto;
+	margin-top: 5px;
 }
 
 #openMenuButton{
@@ -552,338 +640,338 @@ footer img{
 
 #flaubert{
 	top: 690px;
-	left: 175px;
+	left: 158px;
 }
 
 #eiffel{
-	top: 630px;
-	left: 205px;
+	top: 625px;
+	left: 195px;
 }
 
-#daumnier{
-	top: 540px;
-	left: 210px;
+#daumier{
+	top: 515px;
+	left: 200px;
 }
 
 #colette{
-	top: 450px;
-	left: 230px;
+	top: 435px;
+	left: 220px;
 }
 
 #voltaire{
-	top: 425px;
+	top: 410px;
 	left: 275px;
 }
 
 #tchekov{
-	top: 820px;
-	left: 247px;
-	transform: rotate(70deg);
+	top: 840px;
+	left: 245px;
+	transform: rotate(73deg);
 }
 
 #sand{
-	top: 815px;
-	left: 285px;
-	transform: rotate(70deg);
+	top: 828px;
+	left: 292px;
+	transform: rotate(73deg);
 }
 
 #rimbaud{
-	top: 800px;
-	left: 305px;
-	transform: rotate(70deg);
+	top: 817px;
+	left: 317px;
+	transform: rotate(73deg);
 }
 
 #quesnay{
-	top: 800px;
-	left: 345px;
-	transform: rotate(70deg);
+	top: 803px;
+	left: 360px;
+	transform: rotate(32deg);
 }
 
-#plank{
-	top: 700px;
-	left: 400px;
+#planck{
+	top: 695px;
+	left: 415px;
 }
 
 #ohm{
-	top: 715px;
-	left: 335px;
+	top: 710px;
+	left: 345px;
 }
 
 #mozart{
-	top: 660px;
-	left: 320px;
+	top: 650px;
+	left: 323px;
 }
 
 #marconi{
-	top: 620px;
-	left: 305px;
+	top: 605px;
+	left: 310px;
 }
 
 #newton{
-	top: 615px;
-	left: 380px;
+	top: 605px;
+	left: 385px;
 }
 
 #laplace{
-	top: 550px;
-	left: 380px;
+	top: 530px;
+	left: 385px;
 }
 
 #kepler{
-	top: 520px;
+	top: 495px;
 	left: 325px;
 }
 
 #isabey{
-	top: 470px;
+	top: 445px;
 	left: 320px;
 }
 
 #jacquard{
-	top: 485px;
-	left: 380px;
+	top: 465px;
+	left: 385px;
 }
 
 #gay-lussac{
-	top: 380px;
+	top: 365px;
 	left: 350px;
 }
 
 #harvey{
-	top: 380px;
-	left: 440px;
+	top: 365px;
+	left: 438px;
 }
 
 #fleming{
-	top: 310px;
-	left: 435px;
+	top: 295px;
+	left: 433px;
 }
 
 #einstein{
-	top: 310px;
-	left: 360px;
+	top: 303px;
+	left: 361px;
 }
 
 #darwin{
 	top: 230px;
-	left: 435px;
+	left: 432px;
 }
 
 #boole{
 	top: 195px;
-	left: 440px;
+	left: 435px;
 }
 
 #becquerel{
 	top: 160px;
-	left: 430px;
+	left: 425px;
 }
 
 #ampère{
 	top: 160px;
-	left: 360px;
+	left: 355px;
 }
 
 #cuvier{
 	top: 205px;
-	left: 370px;
+	left: 363px;
 }
 
 #pasteur{
-	top: 207px;
+	top: 205px;
 	left: 215px;
 }
 
 #de-gennes{
-	top: 207px;
+	top: 205px;
 	left: 135px;
 }
 
 #bach{
-	top: 315px;
-	left: 230px;
+	top: 300px;
+	left: 227px;
 }
 
 /* etage 1 */
 
 #molière{
-	top: 610px;
-	left: 75px;
+	top: 620px;
+	left: 53px;
 }
 
 #kipling{
 	top: 565px;
-	left: 90px;
+	left: 72px;
 }
 
 #ibsen{
-	top: 510px;
-	left: 110px;
+	top: 506px;
+	left: 95px;
 }
 
 #nabokov{
-	top: 625px;
-	left: 175px;
+	top: 635px;
+	left: 157px;
 }
 
 #lamartine{
 	top: 580px;
-	left: 185px;
+	left: 170px;
 }
 
-#jussien{
+#jussieu{
 	top: 530px;
-	left: 205px;
+	left: 193px;
 }
 
 #hérodote{
-	top: 440px;
-	left: 215px;
+	top: 438px;
+	left: 203px;
 }
 
 #froissart{
-	top: 390px;
-	left: 220px;
+	top: 391px;
+	left: 211px;
 }
 
 #dumas{
-	top: 340px;
-	left: 230px;
+	top: 335px;
+	left: 220px;
 }
 
 #baudelaire{
-	top: 275px;
-	left: 225px;
+	top: 280px;
+	left: 215px;
 }
 
 #apollinaire{
-	top: 265px;
+	top: 270px;
 	left: 115px;
 }
 
 #chenier{
-	top: 320px;
-	left: 125px;
+	top: 328px;
+	left: 117px;
 }
 
 #euripide{
-	top: 380px;
-	left: 115px;
+	top: 383px;
+	left: 108px;
 }
 
 #giraudoux{
-	top: 430px;
-	left: 105px;
+	top: 434px;
+	left: 95px;
 }
 
 #kafka{
-	top: 695px;
-	left: 275px;
+	top: 705px;
+	left: 278px;
 }
 
 #nerval{
-	top: 795px;
+	top: 830px;
 	left: 240px;
 	transform: rotate(70deg);
 }
 
 #leibniz{
-	top: 783px;
-	left: 267px;
+	top: 815px;
+	left: 278px;
 	transform: rotate(70deg);
 }
 
 #joinville {
-	top: 775px;
-	left: 293px;
+	top: 805px;
+	left: 310px;
 	transform: rotate(70deg);
 }
 
 #ingres{
-	top: 740px;
-	left: 335px;
+	top: 760px;
+	left: 353px;
 }
 
 #hugo{
-	top: 665px;
-	left: 360px;
+	top: 678px;
+	left: 367px;
 }
 
 #galilée{
-	top: 610px;
-	left: 345px;
+	top: 620px;
+	left: 353px;
 }
 
 #fermat{
-	top: 560px;
-	left: 335px;
+	top: 565px;
+	left: 343px;
 }
 
 #erasme{
 	top: 515px;
-	left: 328px;
+	left: 333px;
 }
 
 #dante{
-	top: 435px;
-	left: 348px;
+	top: 431px;
+	left: 351px;
 }
 
 #copernic{
-	top: 385px;
-	left: 337px;
+	top: 382px;
+	left: 342px;
 }
 
-#bude{
+#budé{
 	top: 335px;
-	left: 360px;
+	left: 355px;
 }
 
 #avicenne{
-	top: 280px;
+	top: 284px;
 	left: 345px;
 }
 
 #stendhal{
-	top: 170px;
+	top: 140px;
 	left: 265px;
 }
 
 #pascal{
-	top: 170px;
-	left: 210px;
+	top: 140px;
+	left: 208px;
 }
 
 #cervantes{
-	top: 170px;
-	left: 140px;
+	top: 140px;
+	left: 135px;
 }
 
 
 #cdi{
-	top: 765px;
+	top: 760px;
 	left: 200px;
 }
 
-#cafétaria{
-	top: 460px;
-	left: 140px;
+#cafetaria{
+	top: 445px;
+	left: 130px;
 }
 
 #infirmerie{
-	top: 835px;
-	left: 145px;
+	top: 854px;
+	left: 130px;
 	transform: rotate(-15deg);
 }
 
 #cpe1{
-	top: 715px;
-	left: 215px;
+	top: 730px;
+	left: 210px;
 }
 
 #cpe2{
-	top: 810px;
-	left: 210px;
+	top: 842px;
+	left: 202px;
 	transform: rotate(70deg);
 }
 
